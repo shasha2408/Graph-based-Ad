@@ -1,0 +1,14 @@
+from torch.utils.data import Dataset
+
+
+class SwatSet(Dataset):
+    def __init__(self, data, windows_size: int, sliding: int=1):
+        self.data = data
+        self.windows_size = windows_size
+        self.sliding = sliding
+    def __len__(self):
+        return int((self.data.shape[0] - self.windows_size) / self.sliding) - 1
+    def __getitem__(self, index):
+        start = index * self.sliding
+        end = index * self.sliding + self.windows_size
+        return self.data[start:end, :], self.data[end + 1, :] 
