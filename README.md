@@ -1,1 +1,1 @@
-# Graph-based Anomaly detection of Multovariate time series with structure learning
+# Graph-based Anomaly detection of Multivariate time series with structure learning
